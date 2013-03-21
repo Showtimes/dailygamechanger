@@ -1,3 +1,56 @@
 @import "bootstrap";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+
+.content {
+	background: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+#peon_email {
+	border: none;
+	font-size: 85px;
+	height: 100px;
+	line-height: 85px;
+	box-shadow: none;
+	border-radius: 0;
+	width: 800px;
+	background: #ffc0cb;
+	color: white;
+	text-indent: 10px;
+}
+
+#sign-up {
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	height: 100px;
+	font-size: 50px;
+	line-height: 50px;
+	font-weight: bold;
+	color: white;
+	background: #74ffe7;
+}
+
+.big-prompt {
+	color: #bbb;
+	font-size: 50px;
+	line-height: 50px;
+	margin-bottom:25px;
+}
+
+.small-prompt {
+	color: #bbb;
+	font-size: 35px;
+	line-height:45px;
+	span {
+		color: #ff4a6a;
+	}
+}
+
+.alert {
+	border:none !important;
+	border-radius: 0 !important;
+}

@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
   def index
-    @users = User.all
+  	@peon = Peon.new
   end
+
+  def success
+  		
+  end
+
 end

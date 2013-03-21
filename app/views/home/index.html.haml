@@ -1,4 +1,5 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+%h3.big-prompt YOUR EMAIL, PLEASE
+%p
+	= simple_form_for @peon do |f|
+		= f.input :email, placeholder: '', required: false, label: false
+		= f.button :submit, 'YAR', :id => 'sign-up'

@@ -11,7 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130305025207) do
+ActiveRecord::Schema.define(:version => 20130305060921) do
+
+  create_table "changers", :force => true do |t|
+    t.string   "title"
+    t.string   "caption"
+    t.string   "url"
+    t.string   "youtube_id"
+    t.string   "user_id"
+    t.datetime "last_used_at"
+    t.boolean  "disabled"
+    t.integer  "rank"
+    t.integer  "start_seconds"
+    t.integer  "end_seconds"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "peons", :force => true do |t|
+    t.string   "email"
+    t.string   "ip_at_signup"
+    t.string   "tracking_code"
+    t.string   "name"
+    t.string   "unsubscribe_token"
+    t.datetime "unsubscribed_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
