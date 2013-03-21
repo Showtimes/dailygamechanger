@@ -4,7 +4,7 @@ class PeonMailer < ActionMailer::Base
   def welcome(peon)
     @peon = peon
 
-    mail(:to => @peon.email, :subject => "What Is Daily Game Changer?")
+    mail(:to => @peon.email, :subject => "what is Daily Game Changer?")
   end
 
   def game_changer(peon, changer)
