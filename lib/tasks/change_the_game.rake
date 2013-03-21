@@ -1,5 +1,3 @@
-
-
 task :change_the_game => :environment do
 
 	day_num = Time.now.wday
