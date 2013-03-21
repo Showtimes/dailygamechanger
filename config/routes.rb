@@ -12,4 +12,5 @@ Dgc::Application.routes.draw do
   resources :users
 
   resources :peons
+  resources :changers
 end

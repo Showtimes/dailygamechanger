@@ -1,4 +1,6 @@
 class Changer < ActiveRecord::Base
+  obfuscate_id :spin => 89238723
+
   attr_accessible :disabled, :last_used_at, :rank, :url, :user_id, :youtube_id, :start_seconds, :end_seconds, :title
 
   scope :virgins, where("last_used_at IS NULL")
