@@ -7,8 +7,4 @@ class HomeController < ApplicationController
   		
   end
 
-  def watch
-  	@changer = Changer.select_game_changer
-  end
-
 end

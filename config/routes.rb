@@ -6,8 +6,6 @@ Dgc::Application.routes.draw do
   
   match '/yallo', :to => "home#success", :as => :success
 
-  match '/enyoy', :to => "home#watch", :as => :success
-
   devise_for :users
   resources :users
 
