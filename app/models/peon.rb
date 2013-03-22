@@ -28,7 +28,7 @@ class Peon < ActiveRecord::Base
   end
 
   def unsub_url
-    "http://www.dailygamechangers.com/peons/#{self.to_param}/unsubscribe?grendel=#{self.unsubscribe_token}"
+    "http://www.dailygamechanger.com/peons/#{self.to_param}/unsubscribe?grendel=#{self.unsubscribe_token}"
   end
 
   def subscribed?
