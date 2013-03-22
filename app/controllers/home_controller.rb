@@ -7,4 +7,12 @@ class HomeController < ApplicationController
   		
   end
 
+  def resubscribed
+
+  end
+
+  def bad_key
+
+  end
+
 end

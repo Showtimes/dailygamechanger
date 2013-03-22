@@ -24,8 +24,37 @@ class PeonsController < ApplicationController
 
 	end
 
+	def update
+		peon = Peon.find params[:id]
+		if params[:resubscribe].present?
+			peon.resubscribe
+			redirect_to resubscribed_path
+		else
+			redirect_to bad_key_path
+		end
+	end
+
 	def unsubscribe
+		peon = Peon.find params[:id]
+		if peon && params[:grendel].present?
+			if peon.unsubscribe_token == params[:grendel]
+				peon.unsubscribe
+				redirect_to unsubscribed_path(peon)
+			else
+				redirect_to bad_key_path
+			end
+		else
+			redirect_to bad_key_path
+		end
 
 	end 
+
+	def unsubscribed
+		@peon = Peon.find(params[:id])
+		puts @peon
+	rescue => e
+		puts e.inspect
+		@peon = nil
+	end
 
 end

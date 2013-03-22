@@ -7,7 +7,7 @@ task :change_the_game => :environment do
 
 		game_changer = Changer.select_game_changer
 
-		Peon.all.each do |p|
+		Peon.active.each do |p|
 
 			PeonMailer.game_changer(p, game_changer).deliver
 

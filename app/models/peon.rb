@@ -1,5 +1,7 @@
 class Peon < ActiveRecord::Base
-  attr_accessible :email, :ip_at_signup, :name, :tracking_code, :unsubscribe_token
+  obfuscate_id :spin => 76498726
+
+  attr_accessible :email, :ip_at_signup, :name, :tracking_code, :unsubscribe_token, :unsubscribed_at
 
   after_create :welcome_peon
 
@@ -10,9 +12,27 @@ class Peon < ActiveRecord::Base
                     :format     => { :with => email_regex },
                     :uniqueness => { :case_sensitive => false }
 
+  scope :active, where('unsubscribed_at IS NULL')
+
 
   def welcome_peon
   	PeonMailer.welcome(self).deliver
+  end
+
+  def unsubscribe
+    self.update_attribute(:unsubscribed_at, Time.now)
+  end
+
+  def resubscribe
+    self.update_attribute(:unsubscribed_at, nil)
+  end
+
+  def unsub_url
+    "http://www.dailygamechangers.com/peons/#{self.to_param}/unsubscribe?grendel=#{self.unsubscribe_token}"
+  end
+
+  def subscribed?
+    !self.unsubscribed_at.present?
   end
 
 end
