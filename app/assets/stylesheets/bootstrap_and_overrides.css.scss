@@ -36,6 +36,15 @@ body { padding-top: 60px; }
 	padding-right: 25px;
 }
 
+a.loud-btn {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	&:hover {
+		text-decoration: none;
+		color: white;
+	}
+}
+
 .big-prompt {
 	color: #bbb;
 	font-size: 50px;
