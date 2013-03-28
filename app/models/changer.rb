@@ -16,7 +16,7 @@ class Changer < ActiveRecord::Base
 
   def self.select_game_changer(cached = true)
   	if cached
-	  	Rails.cache.fetch('dgc', :expires_in => 18.hours) {
+	  	Rails.cache.fetch('dgc', :expires_in => 12.hours) {
 			if self.virgins.present?
 		  		self.virgins.sample
 		  	else
