@@ -17,20 +17,20 @@ class Changer < ActiveRecord::Base
   def self.select_game_changer(cached = true)
   	if cached
 	  	Rails.cache.fetch('dgc', :expires_in => 12.hours) {
-			if self.virgins.present?
-		  		self.virgins.sample
-		  	else
-		  		self.where('last_used_at < ?', 1.month.ago).order('last_used_at ASC').sample
-		  	end  		
+  		  Changer.change_the_game
 	  	}
-	else
-		if self.virgins.present?
-	  		self.virgins.sample
-	  	else
-	  		self.where('last_used_at < ?', 1.month.ago).order('last_used_at ASC').sample
-	  	end
+	  else
+      Changer.change_the_game
+    end
+		
 	end
-  	
+
+  def self.change_the_game
+    if self.virgins.present?
+      self.virgins.sample
+    else
+      self.where('last_used_at < ?', 1.month.ago).order('last_used_at ASC').sample
+    end   
   end
 
   def mark_used
